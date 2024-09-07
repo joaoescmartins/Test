@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class VerificarFibo {
+    
+    public static boolean Fibonacci(int n) {
+        if (n < 0) {
+            return false;
+        }
+
+        int a = 0, b = 1, sum = 0;
+        while (sum < n) {
+            sum = a + b;
+            a = b;
+            b = sum;
+        }
+
+        return (sum == n || n == 0);
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Informe um número: ");
+        int num = scanner.nextInt();
+        if (Fibonacci(num)) {
+            System.out.println("O número " + num + " pertence à sequência de Fibonacci.");
+        } else {
+            System.out.println("O número " + num + " não pertence à sequência de Fibonacci.");
+        }
+
+        scanner.close();
+    }
+}
